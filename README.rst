@@ -2,11 +2,13 @@ AkibaMailer
 ============
 
 This python module is wapper of smtplib.
+
 If you use this module, can easy send mail.
 
 1. Install
 -----------
 Please run setup.py.
+
 >python setup.py install
 
 
