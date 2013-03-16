@@ -71,29 +71,67 @@ class Mail:
                             self.charset)
         self.msg["Date"] = formatdate(localtime=True)
 
-    def set_header(self, subject):
+    def set_subject(self, subject):
         """
-        
+        set to subject
+
+        :param String subject: mail subject
         """
         self.msg["Subject"] = Header(subject, self.charset)
         
     def set_from_addr(self, from_addr):
+        """
+        set to subject
+
+        :parama String from_addr: FROM mail address
+        """
         self.msg["From"] = from_addr
         self.from_addr = from_addr
 
     def set_to_addr(self, to_addr):
+        """
+        set to addr
+        In feature, we can send to mail addresses.
+
+        :param String to_addr: To mail address
+        """
         self.msg["To"] = to_addr
         self.to_addr = to_addr
 
     def set_charset(self, charset):
+        """
+        set charset for mail body and subject.
+        Default charset is "ISO-2022-JP"
+
+        :param String charset: charset
+        """
         self.charset = charset
 
     def get_from_addr(self):
-        return seilf.msg["From"]
+        """
+        get from address 
+
+        :rtype: String
+        :return: FROM mail address
+        """
+        return self.msg["From"]
 
     def get_to_addr(self):
+        """
+        get To address
+        Now, return a mail address.
+
+        :rtype: String
+        :return: TO mail address
+        """
         return self.msg["To"]
 
     def get_mail_string(self):
+        """
+        get mail body string
+
+        :rtyoe: String
+        :return: mail body string.
+        """
         return self.msg.as_string()
 
