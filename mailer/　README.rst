@@ -15,19 +15,21 @@ Please run setup.py.
 
 
 .. code-block:: Python
-from mailer import mailer
 
-#create Mail object
-mail = mailer.mail('test mail')
-mail.set_subject('subject of test mail')
-mail.set_from_addr('example@gmail.com')
-mail.set_to_addr('target@gmail.com')
+    from mailer import mailer
+    
+    #create Mail object
+    mail = mailer.mail('test mail')
+    mail.set_subject('subject of test mail')
+    mail.set_from_addr('example@gmail.com')
+    mail.set_to_addr('target@gmail.com')
+    
+    #create MailSender object
+    mailsender = MailSender('smtp.gmail.com', 587)
+    mailsender.set_credential('example@gmail.com', 'password')
+    
+    #If your smtp server use TLS, Please set parameter.
+    mailsender.use_tls = True # Default False
+    
+    mailsender.send_mail(mail) #sending mail.
 
-#create MailSender object
-mailsender = MailSender('smtp.gmail.com', 587)
-mailsender.set_credential('example@gmail.com', 'password')
-
-#If your smtp server use TLS, Please set parameter.
-mailsender.use_tls = True # Default False
-
-mailsender.send_mail(mail) #sending mail.
